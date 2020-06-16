@@ -16,8 +16,8 @@ def main():
 
 
 
-    colorSelectThread = threading.Thread(target=,args= )
-    xyMovementThread =
+    colorSelectThread = threading.Thread(target= ,args= )
+    xyMovementThread = threading.Thread(target= ,args=)
     print(data[0])
 
 
@@ -26,11 +26,13 @@ def constructColorList(list):
     for x in list:
         color.append([0][x])
     return color
-    
+
 
 def constructCordinateList(list):
-
+    cord = [len(list)][1]
+    for x in list:
+        cord[x][0] = list[x][0]
+        cord[x][1] = list[x][1]
     return cord
-
 
 main()
