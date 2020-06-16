@@ -3,7 +3,6 @@
 
 import threading
 import time
-
 import csv
 
 
@@ -13,12 +12,18 @@ def main():
     length = len(data)
     data_list = [][2]
 
+    colorSelectThread = threading.Thread(target=runSelector(), args=(1,))
+    xyMovementThread = threading.Thread(target=runPlacer(), args=(1,))
+
+    colorSelectThread.start()
+    xyMovementThread.start()
 
 
+def runPlacer(list):
+    return
 
-    colorSelectThread = threading.Thread(target= ,args= )
-    xyMovementThread = threading.Thread(target= ,args=)
-    print(data[0])
+def runSelector(colorList):
+    return
 
 
 def constructColorList(list):
