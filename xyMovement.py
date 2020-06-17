@@ -2,12 +2,12 @@ import RPi.GPIO as GPIO
 
 x = 21
 y = 20
-calib = 22
+caliber = 22
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(x, GPIO.OUT)
 GPIO.setup(y, GPIO.OUT)
-GPIO.setup(calib, GPIO.OUT)
+GPIO.setup(caliber, GPIO.IN)
 
 
 def calibrate():

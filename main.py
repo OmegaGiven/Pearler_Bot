@@ -2,25 +2,28 @@
 # import xyMovement
 
 import threading
-import time
 import csv
 
 
-threads = list()
 def main():
-    data = list(open("TestExport.txt"))
-    length = len(data)
-    data_list = [][2]
+    data = open("TestExport.txt")
+    dataList = []
+    for x in csv.reader(data):
+        dataList.append(x.split(","))
 
-    colorSelectThread = threading.Thread(target=runSelector(), args=(1,))
-    xyMovementThread = threading.Thread(target=runPlacer(), args=(1,))
+    colorList = constructColorList(dataList)
+    placerList = constructCordinateList(dataList)
+
+    colorSelectThread = threading.Thread(target=runSelector(colorList), args=(1,))
+    xyMovementThread = threading.Thread(target=runPlacer(placerList), args=(1,))
 
     colorSelectThread.start()
     xyMovementThread.start()
 
 
-def runPlacer(list):
+def runPlacer(placerList):
     return
+
 
 def runSelector(colorList):
     return
