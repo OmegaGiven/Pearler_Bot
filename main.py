@@ -3,19 +3,25 @@
 
 import threading
 import csv
-
-from agrigator import agrigator
+import RPi.GPIO as GPIO
 
 
 def main():
-    
+    data = open("TestExport.txt")
+    dataList = []
+    for x in csv.reader(data):
+        dataList.append(x.split(","))
+
+    colorList = constructColorList(dataList)
+    placerList = constructCordinateList(dataList)
+
     colorSelectThread = threading.Thread(target=runSelector(colorList), args=(1,))
     xyMovementThread = threading.Thread(target=runPlacer(placerList), args=(1,))
-    agrigatorThread = threading.Thread(target=runAgrigator(),args=(1,))
 
     colorSelectThread.start()
     xyMovementThread.start()
-    agrigatorThread.start()
+    
+    
 
 
 def runPlacer(placerList):
@@ -24,9 +30,6 @@ def runPlacer(placerList):
 
 def runSelector(colorList):
     return
-
-def runAgrigator():
-    agrigator()
 
 
 def constructColorList(list):
