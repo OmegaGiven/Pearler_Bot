@@ -1,11 +1,7 @@
-import colorSelector
-import xyMovement
-import agrigator
-
+from GUI.hardwareSignals import agrigator
 
 import threading
 import csv
-import RPi.GPIO as GPIO
 
 
 def main():

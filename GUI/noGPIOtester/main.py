@@ -1,10 +1,7 @@
-import colorSelector
-import xyMovement
-import agrigator
-
+from GUI.hardwareSignals import agrigator
+from GUI import xyMovement
 
 import threading
-import csv
 
 
 def main():
