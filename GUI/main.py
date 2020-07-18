@@ -1,4 +1,5 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box
+from xyMovement import move_x, move_y
 
 theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
 # Teal accented dark theme, https://www.color-hex.com/color-palette/26292
@@ -48,11 +49,13 @@ def move_aggregator():
     return
 
 
-def move_x():
+def move_x_button(distance):
+    move_x(distance)
     return
 
 
-def move_y():
+def move_y_button(distance):
+    move_y(distance)
     return
 
 
@@ -79,17 +82,18 @@ Text(text_box,
 
 # first row features
 a1 = Text(controller_box, text="Aggregator", grid=[1, 3],)
-slider = Slider(controller_box, start=0, end=1, grid=[2, 3])
-slider.bg = theme[0]
+sliderA = Slider(controller_box, start=0, end=1, grid=[2, 3])
+sliderA.bg = theme[0]
 
 # movement features
-a2 = PushButton(controller_box, text="      Move X       ", grid=[1, 4],)
-a2.bg = theme[4]
-a3 = PushButton(controller_box, text="      Move Y       ", grid=[2, 4],)
-a3.bg = theme[4]
 Text(controller_box, text="speed", grid=[3, 4], color="white")
-slider = Slider(controller_box, start=-200, end=200, grid=[4, 4], )
-slider.bg = theme[0]
+sliderXY = Slider(controller_box, start=-200, end=200, grid=[4, 4], )
+sliderXY.bg = theme[0]
+a2 = PushButton(controller_box, move_x_button(sliderXY.value), text="      Move X       ", grid=[1, 4],)
+a2.bg = theme[4]
+a3 = PushButton(controller_box, move_y_button(sliderXY.value), text="      Move Y       ", grid=[2, 4],)
+a3.bg = theme[4]
+
 
 # rotate selector
 a4 = PushButton(controller_box, command=start_print, text="Rotate Selector", grid=[1, 5],)
