@@ -30,7 +30,7 @@ def move_x(distance):
     else:
         dir = CW
     threadx = threading.Thread(target=thread_x(distance, dir), args=(1,))
-    print("threadx started with distance: " + distance)
+    print("threadx started with distance: " + str(distance))
     threadx.start()
     return
 
@@ -52,7 +52,7 @@ def move_y(distance):
     else:
         dir = CW
     thready = threading.Thread(target=thread_y(distance, dir), args=(1,))
-    print("thready started with distance: " + distance)
+    print("thready started with distance: " + str(distance))
     thready.start()
     return
 
