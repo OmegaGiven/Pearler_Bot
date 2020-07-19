@@ -58,14 +58,12 @@ def move_aggregator():
     return
 
 
-def move_x_button(distance):
-    move_x(distance)
-    return
+def move_x_button():
+    move_x(sliderXY.value)
 
 
-def move_y_button(distance):
-    move_y(distance)
-    return
+def move_y_button():
+    move_y(sliderXY.value)
 
 
 def rotate_selector():
@@ -98,9 +96,9 @@ sliderA.bg = theme[0]
 Text(controller_box, text="speed", grid=[3, 4], color="white")
 sliderXY = Slider(controller_box, start=-200, end=200, grid=[4, 4], )
 sliderXY.bg = theme[0]
-a2 = PushButton(controller_box, command=move_x_button(sliderXY.value), text="      Move X       ", grid=[1, 4],)
+a2 = PushButton(controller_box, command=move_x_button, text="      Move X       ", grid=[1, 4],)
 a2.bg = theme[4]
-a3 = PushButton(controller_box, command=move_y_button(sliderXY.value), text="      Move Y       ", grid=[2, 4],)
+a3 = PushButton(controller_box, command=move_y_button, text="      Move Y       ", grid=[2, 4],)
 a3.bg = theme[4]
 
 # rotate selector
