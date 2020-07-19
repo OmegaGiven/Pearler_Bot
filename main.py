@@ -23,7 +23,7 @@ def edit_function():
 
 
 def cleanup():
-    if app.warn("close", "Performing cleanup on close"):
+    if app.yesno("close", "Performing cleanup on close? \tNeed to preform cleanup or else..."):
         cleanpins()
         app.destroy()
     

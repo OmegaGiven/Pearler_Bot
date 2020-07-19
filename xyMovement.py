@@ -68,4 +68,4 @@ def thread_y(distance, dir):
 
 
 def cleanpins():
-    GPIO.cleanup
+    GPIO.cleanup()
