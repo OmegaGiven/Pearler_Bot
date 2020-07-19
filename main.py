@@ -1,5 +1,5 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box
-from xyMovement import move_x, move_y, cleanup
+from xyMovement import move_x, move_y, cleanpins
 import RPi.GPIO as GPIO
 
 theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
@@ -23,9 +23,9 @@ def edit_function():
 
 
 def cleanup():
-    app.warn("close", "Preforming cleanup on close")
-    app.display()
-    cleanup()
+    if app.warn("close", "Performing cleanup on close"):
+        cleanpins()
+        app.destroy()
     
 
 
