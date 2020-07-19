@@ -14,7 +14,7 @@ GPIO.setup(x, GPIO.OUT)
 GPIO.setup(xDir, GPIO.OUT)
 GPIO.output(xDir, CW)
 
-y = 27
+y = 7
 yDir = 8
 GPIO.setup(y, GPIO.OUT)
 GPIO.setup(yDir, GPIO.OUT)
