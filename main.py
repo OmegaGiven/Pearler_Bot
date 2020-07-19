@@ -1,5 +1,5 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box
-from xyMovement import move_x, move_y
+from xyMovement import move_x, move_y, cleanup
 import RPi.GPIO as GPIO
 
 theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
@@ -25,7 +25,7 @@ def edit_function():
 def cleanup():
     app.warn("close", "Preforming cleanup on close")
     app.display()
-    xyMovement.cleanup()
+    cleanup()
     
 
 
@@ -102,7 +102,6 @@ a2 = PushButton(controller_box, command=move_x_button(sliderXY.value), text="   
 a2.bg = theme[4]
 a3 = PushButton(controller_box, command=move_y_button(sliderXY.value), text="      Move Y       ", grid=[2, 4],)
 a3.bg = theme[4]
-
 
 # rotate selector
 a4 = PushButton(controller_box, command=start_print, text="Rotate Selector", grid=[1, 5],)
