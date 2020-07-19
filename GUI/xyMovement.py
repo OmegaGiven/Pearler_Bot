@@ -56,3 +56,6 @@ def thread_y(distance, dir):
     for i in range(distance):
         GPIO.output(y, GPIO.HIGH)
     return
+
+def cleanup():
+    GPIO.cleanup
