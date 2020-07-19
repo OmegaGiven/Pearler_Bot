@@ -1,5 +1,6 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box
 from xyMovement import move_x, move_y
+import RPi.GPIO as GPIO
 
 theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
 # Teal accented dark theme, https://www.color-hex.com/color-palette/26292
@@ -21,11 +22,16 @@ def edit_function():
     return
 
 
+def cleanup():
+    GPIO.cleanup()
+
+
 def get_file():
     file_name.value = app.select_file()
 
 
 app = App(layout="grid", title="Pearler Controller", bg="#282828", width=600, height=500, )
+app.when_closed = cleanup
 
 
 menubar = MenuBar(app,
