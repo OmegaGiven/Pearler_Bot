@@ -22,10 +22,11 @@ def edit_function():
     return
 
 
-def cleanup():
+def clean():
     if app.yesno("close", "Performing cleanup on close? \tNeed to preform cleanup or else..."):
         cleanpins()
         app.destroy()
+    return
     
 
 
@@ -34,7 +35,7 @@ def get_file():
 
 
 app = App(layout="grid", title="Pearler Controller", bg="#282828", width=600, height=500, )
-app.when_closed = cleanup
+app.when_closed = clean()
 
 
 menubar = MenuBar(app,
@@ -87,7 +88,7 @@ Text(text_box,
 
 # Need to implement the funcitons to actually call the motors to move with selected values
 
-# first row features
+# agrigator features
 a1 = Text(controller_box, text="Aggregator", grid=[1, 3],)
 sliderA = Slider(controller_box, start=0, end=1, grid=[2, 3])
 sliderA.bg = theme[0]

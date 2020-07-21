@@ -34,7 +34,6 @@ def move_x(distance):
     threadx.start()
 
 
-
 def thread_x(distance, dir):
     GPIO.output(xDir, dir)
     for i in range(distance):
@@ -44,17 +43,15 @@ def thread_x(distance, dir):
         time.sleep(delay)
 
 
-
 def move_y(distance):
     if distance < 0:
         distance = distance * -1
         dir = CCW
     else:
         dir = CW
-    thready = threading.Thread(target=thread_y(distance, dir), args=(1,))
+    thready = threading.Thread(target=thread_y(distance, dir), args=(1,), )
     print("thready started with distance: " + str(distance))
     thready.start()
-
 
 
 def thread_y(distance, dir):
@@ -64,7 +61,6 @@ def thread_y(distance, dir):
         time.sleep(delay)
         GPIO.output(y, GPIO.LOW)
         time.sleep(delay)
-
 
 
 def cleanpins():

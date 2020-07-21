@@ -17,22 +17,34 @@ delay = 0.01
 
 
 def agrigator_thread():
-    threading.Thread(target=thread_move(), args=(1,))
+    thread_a = threading.ThreadA()
+    thread_a.start()
+
     return
 
 
-def thread_move():
-   while(True):
-        GPIO.output(dir, CW)
-        for i in range(200):
-            GPIO.output(stepper, GPIO.HIGH)
-            time.sleep(delay)
-            GPIO.output(stepper, GPIO.LOW)
-            time.sleep(delay)
-        GPIO.output(dir, CCW)
-        for i in range(200):
-            GPIO.output(stepper, GPIO.HIGH)
-            time.sleep(delay)
-            GPIO.output(stepper, GPIO.LOW)
-            time.sleep(delay)
-        return
+class ThreadA(threading.Thread):
+    def __init__(self):
+        self.stop = False
+
+    def thread_move(self):
+        while self.stop:
+            GPIO.output(dir, CW)
+            for i in range(200):
+                GPIO.output(stepper, GPIO.HIGH)
+                time.sleep(delay)
+                GPIO.output(stepper, GPIO.LOW)
+                time.sleep(delay)
+            GPIO.output(dir, CCW)
+            for i in range(200):
+                GPIO.output(stepper, GPIO.HIGH)
+                time.sleep(delay)
+                GPIO.output(stepper, GPIO.LOW)
+                time.sleep(delay)
+            return
+
+
+    def run(self):
+        self.thread_move()
+
+
