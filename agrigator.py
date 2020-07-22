@@ -16,11 +16,9 @@ GPIO.output(dir, CW)
 delay = 0.01
 
 
-def agrigator_thread():
+def agrigator_thread(onOff):
     thread_a = threading.ThreadA()
     thread_a.start()
-
-    return
 
 
 class ThreadA(threading.Thread):
