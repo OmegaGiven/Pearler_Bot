@@ -1,6 +1,6 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box
 from xyMovement import move_x, move_y, cleanpins
-from agrigator import  agrigator_thread
+from agrigator import  agrigator_on, agrigator_off
 import RPi.GPIO as GPIO
 
 theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
@@ -57,7 +57,10 @@ StartButton.bg = theme[4]
 
 # manual buttons
 def move_aggregator():
-    agrigator_thread(sliderA.value)
+    if sliderA.value == 0:
+        agrigator_off()
+    if sliderA.value == 1:
+        agrigator_on()
 
 
 def move_x_button():
