@@ -41,8 +41,5 @@ class ThreadA(threading.Thread):
                 time.sleep(delay)
             return
 
-
     def run(self):
         self.thread_move()
-
-
