@@ -27,7 +27,8 @@ def clean():
     if yesno("close", "Performing cleanup on close? \tNeed to preform cleanup or else..."):
         cleanpins()
         app.destroy()
-    return
+    else:
+        return
     
 
 
@@ -36,7 +37,7 @@ def get_file():
 
 
 app = App(layout="grid", title="Pearler Controller", bg="#282828", width=600, height=500, )
-app.when_closed = clean()
+app.when_closed = clean
 
 
 menubar = MenuBar(app,
@@ -55,12 +56,7 @@ StartButton = PushButton(app, command=start_print, text="Start Print", grid=[0, 
 StartButton.bg = theme[4]
 
 
-# manual buttons
-def move_aggregator():
-    if sliderA.value == 0:
-        agrigator_off()
-    if sliderA.value == 1:
-        agrigator_on()
+
 
 
 def move_x_button():
@@ -121,6 +117,12 @@ slider = Slider(controller_box, start=-200, end=200, grid=[4, 5], )
 slider.bg = theme[0]
 
 
+# manual buttons
+def move_aggregator():
+    if sliderA.value == 0:
+        agrigator_off()
+    if sliderA.value == 1:
+        agrigator_on()
 
 
 app.display()
