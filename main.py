@@ -24,7 +24,7 @@ def edit_function():
 
 
 def clean():
-    if app.yesno("close", "Performing cleanup on close? \tNeed to preform cleanup or else..."):
+    if yesno("close", "Performing cleanup on close? \tNeed to preform cleanup or else..."):
         cleanpins()
         app.destroy()
     return
