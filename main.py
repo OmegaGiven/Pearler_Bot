@@ -56,7 +56,12 @@ StartButton = PushButton(app, command=start_print, text="Start Print", grid=[0, 
 StartButton.bg = theme[4]
 
 
-
+# manual buttons
+def move_aggregator(value):
+    if value == 0:
+        agrigator_off()
+    if value == 1:
+        agrigator_on()
 
 
 def move_x_button():
@@ -89,8 +94,10 @@ Text(text_box,
 # Need to implement the funcitons to actually call the motors to move with selected values
 
 # agrigator features
+slid_a = 0
 a1 = Text(controller_box, text="Aggregator", grid=[1, 3],)
-sliderA = Slider(controller_box, command=move_aggregator(), start=0, end=1, grid=[2, 3])
+sliderA = Slider(controller_box, command=move_aggregator(slid_a), start=0, end=1, grid=[2, 3])
+slid_a = sliderA.value
 sliderA.bg = theme[0]
 
 # movement features
@@ -115,14 +122,6 @@ a5.bg = theme[4]
 Text(controller_box, text="speed", grid=[3, 4], color="white")
 slider = Slider(controller_box, start=-200, end=200, grid=[4, 5], )
 slider.bg = theme[0]
-
-
-# manual buttons
-def move_aggregator():
-    if sliderA.value == 0:
-        agrigator_off()
-    if sliderA.value == 1:
-        agrigator_on()
 
 
 app.display()
