@@ -15,17 +15,6 @@ GPIO.setup(dir, GPIO.OUT)
 GPIO.output(dir, CW)
 delay = 0.01
 
-thread_a = threading.ThreadA()
-thread_a.start()
-
-
-def agrigator_on():
-    thread_a.stop == True
-
-
-def agrigator_off():
-    thread_a.stop == False
-
 
 class ThreadA(threading.Thread):
     def __init__(self):
@@ -49,3 +38,18 @@ class ThreadA(threading.Thread):
 
     def run(self):
         self.thread_move()
+
+
+thread_a = ThreadA()
+thread_a.start()
+
+
+def agrigator_on():
+    thread_a.stop == True
+
+
+def agrigator_off():
+    thread_a.stop == False
+
+
+
