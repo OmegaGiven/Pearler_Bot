@@ -1,4 +1,4 @@
-from guizero import App, PushButton, MenuBar, Text, Slider, Box
+from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno
 from xyMovement import move_x, move_y, cleanpins
 from agrigator import  agrigator_on, agrigator_off
 import RPi.GPIO as GPIO
