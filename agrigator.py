@@ -18,6 +18,7 @@ delay = 0.01
 
 class ThreadA(threading.Thread):
     def __init__(self):
+        super(ThreadA, self).__init__()
         self.stop = True
 
     def thread_move(self):
