@@ -19,7 +19,7 @@ delay = 0.01
 class ThreadA(threading.Thread):
     def __init__(self):
         super(ThreadA, self).__init__()
-        self.stop = True
+        self.stop = False
 
     def thread_move(self):
         while self.stop:
@@ -46,11 +46,11 @@ thread_a.start()
 
 
 def agrigator_on():
-    thread_a.stop == True
+    thread_a.stop = True
 
 
 def agrigator_off():
-    thread_a.stop == False
+    thread_a.stop = False
 
 
 
