@@ -1,7 +1,6 @@
 from xyMovement import move_x, move_y
 from colorSelector import move_pusher, move_rotator
-import threading
-from concurrent.futures import ThreadPoolExecutor
+from multiprocessing import Process
 
 def goto(startpointX, startpointY, startColor):
     move_rotator(startColor)
@@ -12,7 +11,7 @@ def goto(startpointX, startpointY, startColor):
 
 
 def pearl(print_list):
-    threadPearl = threading.Thread(target=thread_pearl(print_list), args=(1,), )
+    threadPearl = Process(target=thread_pearl())
     threadPearl.start()
     print('thread Pearl started')
 
