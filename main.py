@@ -69,6 +69,9 @@ sliderM.bg = theme[0]
 a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(sliderM.value), text=" Move Selector ", grid=[3, 5],)
 a5.bg = theme[4]
 
+""" Stop All Button"""
+a6 = PushButton(controller_box, command=menuFunctions.stop_all, text=" Stop All functions ", grid=[1,6])
+a6.bg = theme[4]
 
 
 app.display()

@@ -2,15 +2,21 @@ from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno
 from xyMovement import move_x, move_y, cleanpins
 from agrigator import  agrigator_on, agrigator_off
 from colorSelector import move_pusher, move_rotator
-import numpy as np
-import csv
+from print import pearl
 
 
 def start_print(file_name, app):
     if file_name.value == "none selected":
         app.info("Error", "Please select a file")
     else:
-        app.info("Printer Status", "Print has started")
+        try:
+            print_list = load_file(file_name)
+            pearl(print_list)
+            app.info("Printer Status", "Print has started")
+        except:
+            app.info("Printer Status", "Print cannot start. \n File does not work for operation.")
+
+
 
 
 def file_function():
@@ -66,3 +72,7 @@ def rotate_selector(distance):
 
 def move_selector(distance):
     move_pusher(distance)
+
+
+def stop_all():
+    return

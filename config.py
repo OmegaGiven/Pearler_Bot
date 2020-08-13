@@ -11,7 +11,7 @@ y = 7
 y_dir = 8
 
 Rotator_Motor_Configuration = []
-Pusher_Motor_Configuration = []
+Pusher_Motor_Configuration = [100]
 rotator = 6
 rotator_dir = 5
 pusher = 22
