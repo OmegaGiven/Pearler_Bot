@@ -49,6 +49,7 @@ def load_file(file_name):
         val_list = list(int(val))
         loaded_file.append(val_list)
     f.close()
+    print(loaded_file)
     return loaded_file
 
 
