@@ -21,7 +21,7 @@ GPIO.output(y_dir, CW)
 
 
 def move_x(distance):
-    if distance < 0:
+    if int(distance) < 0:
         distance = distance * -1
         dir = CCW
     else:
