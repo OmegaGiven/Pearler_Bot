@@ -42,7 +42,6 @@ class ThreadA(threading.Thread):
 
 
 thread_a = ThreadA()
-thread_list.append(thread_a)
 thread_a.start()
 
 

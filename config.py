@@ -2,8 +2,6 @@
 Configuration of Motors
     input the number used in manual control to drop to specific pins and holes for accurate movement.
 """
-thread_list = []
-
 X_Motor_Configuration = 10
 Y_Motor_Configuration = 10
 x = 24

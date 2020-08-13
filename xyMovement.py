@@ -28,7 +28,6 @@ def move_x(distance):
         dir = CW
     threadx = threading.Thread(target=thread_x(distance * X_Motor_Configuration, dir), args=(1,))
     print("threadx started with distance: " + str(distance))
-    thread_list.append(threadx)
     threadx.start()
 
 
@@ -49,7 +48,6 @@ def move_y(distance):
         dir = CW
     thready = threading.Thread(target=thread_y(distance * Y_Motor_Configuration, dir), args=(1,), )
     print("thready started with distance: " + str(distance))
-    thread_list.append(thready)
     thready.start()
 
 
