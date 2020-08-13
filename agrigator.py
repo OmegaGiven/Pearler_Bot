@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
+from config import aggrigator, aggrigator_dir, Agrigator_Motor_Configuration
 
 GPIO.setmode(GPIO.BCM)
 
@@ -8,11 +9,10 @@ CW = 1
 CCW = 0
 SPR = 50
 
-stepper = 21
-dir = 20
-GPIO.setup(stepper, GPIO.OUT)
-GPIO.setup(dir, GPIO.OUT)
-GPIO.output(dir, CW)
+
+GPIO.setup(aggrigator, GPIO.OUT)
+GPIO.setup(aggrigator_dir, GPIO.OUT)
+GPIO.output(aggrigator_dir, CW)
 delay = 0.01
 
 
@@ -23,17 +23,17 @@ class ThreadA(threading.Thread):
 
     def thread_move(self):
         while self.stop:
-            GPIO.output(dir, CW)
-            for i in range(200):
-                GPIO.output(stepper, GPIO.HIGH)
+            GPIO.output(aggrigator_dir, CW)
+            for i in range(Agrigator_Motor_Configuration):
+                GPIO.output(aggrigator, GPIO.HIGH)
                 time.sleep(delay)
-                GPIO.output(stepper, GPIO.LOW)
+                GPIO.output(aggrigator, GPIO.LOW)
                 time.sleep(delay)
-            GPIO.output(dir, CCW)
-            for i in range(200):
-                GPIO.output(stepper, GPIO.HIGH)
+            GPIO.output(aggrigator_dir, CCW)
+            for i in range(Agrigator_Motor_Configuration):
+                GPIO.output(aggrigator, GPIO.HIGH)
                 time.sleep(delay)
-                GPIO.output(stepper, GPIO.LOW)
+                GPIO.output(aggrigator, GPIO.LOW)
                 time.sleep(delay)
             return
 

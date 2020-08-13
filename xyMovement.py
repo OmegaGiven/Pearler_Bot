@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
+from config import x, x_dir, y, y_dir
 
 GPIO.setmode(GPIO.BCM)
 
@@ -8,17 +9,15 @@ CW = 1
 CCW = 0
 SPR = 50
 
-x = 24
-xDir = 23
-GPIO.setup(x, GPIO.OUT)
-GPIO.setup(xDir, GPIO.OUT)
-GPIO.output(xDir, CW)
 
-y = 7
-yDir = 8
+GPIO.setup(x, GPIO.OUT)
+GPIO.setup(x_dir, GPIO.OUT)
+GPIO.output(x_dir, CW)
+
+
 GPIO.setup(y, GPIO.OUT)
-GPIO.setup(yDir, GPIO.OUT)
-GPIO.output(yDir, CW)
+GPIO.setup(y_dir, GPIO.OUT)
+GPIO.output(y_dir, CW)
 
 delay = 0.001
 
@@ -35,7 +34,7 @@ def move_x(distance):
 
 
 def thread_x(distance, dir):
-    GPIO.output(xDir, dir)
+    GPIO.output(x_dir, dir)
     for i in range(distance):
         GPIO.output(x, GPIO.HIGH)
         time.sleep(delay)
@@ -55,7 +54,7 @@ def move_y(distance):
 
 
 def thread_y(distance, dir):
-    GPIO.output(yDir, dir)
+    GPIO.output(y_dir, dir)
     for i in range(distance):
         GPIO.output(y, GPIO.HIGH)
         time.sleep(delay)

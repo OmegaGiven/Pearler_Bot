@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
+import config
 
 GPIO.setmode(GPIO.BCM)
 
@@ -9,23 +10,15 @@ CCW = 0
 SPR = 50
 delay = 0.01
 
-'''
-Top Pusher
-'''
-pusher = 22
-pusher_dir = 27
-GPIO.setup(pusher, GPIO.OUT)
-GPIO.setup(pusher_dir, GPIO.OUT)
-GPIO.output(pusher_dir, CW)
+""" Top Pusher Pin setup """
+GPIO.setup(config.pusher, GPIO.OUT)
+GPIO.setup(config.pusher_dir, GPIO.OUT)
+GPIO.output(config.pusher_dir, CW)
 
-'''
-Rotator
-'''
-rotator = 6
-rotator_dir = 5
-GPIO.setup(rotator, GPIO.OUT)
-GPIO.setup(rotator_dir, GPIO.OUT)
-GPIO.output(rotator_dir, CW)
+""" Rotator Pin setup """
+GPIO.setup(config.rotator, GPIO.OUT)
+GPIO.setup(config.rotator_dir, GPIO.OUT)
+GPIO.output(config.rotator_dir, CW)
 
 
 class ThreadA(threading.Thread):
