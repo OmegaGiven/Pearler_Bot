@@ -2,7 +2,7 @@ from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno
 from xyMovement import move_x, move_y, cleanpins
 from agrigator import  agrigator_on, agrigator_off
 from colorSelector import move_pusher, move_rotator
-from config import thread_list
+from config import thread_list, file
 from print import pearl
 
 
@@ -10,7 +10,7 @@ def start_print(file_name, app):
     if file_name.value == "none selected":
         app.info("Error", "Please select a file")
     else:
-        print_list = load_file(file_name)
+        print_list = load_file(file_name.value)
         pearl(print_list)
         app.info("Printer Status", "Print has started")
         # except:
@@ -37,6 +37,7 @@ def clean(app):
 
 def get_file(file_name, app):
     file_name.value = app.select_file()
+    print('selected: ' + file_name.value)
 
 
 def load_file(file_name):
