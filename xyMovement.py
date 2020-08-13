@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import threading
 import time
 from config import x, x_dir, y, y_dir, X_Motor_Configuration, Y_Motor_Configuration
-from config import thread_list
 
 GPIO.setmode(GPIO.BCM)
 
