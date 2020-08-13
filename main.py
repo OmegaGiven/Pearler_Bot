@@ -70,7 +70,7 @@ a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(slid
 a5.bg = theme[4]
 
 """ Stop All Button"""
-a6 = PushButton(controller_box, command=menuFunctions.stop_all, text=" Stop All functions ", grid=[1,6])
+a6 = PushButton(controller_box, command=menuFunctions.stop_all, text="Stop All functions", grid=[1,6])
 a6.bg = theme[4]
 
 

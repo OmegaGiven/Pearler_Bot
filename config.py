@@ -2,6 +2,7 @@
 Configuration of Motors
     input the number used in manual control to drop to specific pins and holes for accurate movement.
 """
+thread_list = []
 
 X_Motor_Configuration = []
 Y_Motor_Configuration = []

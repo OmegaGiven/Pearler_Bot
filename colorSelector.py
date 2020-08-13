@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
-from config import pusher, pusher_dir, rotator, rotator_dir, Pusher_Motor_Configuration
+from config import pusher, pusher_dir, rotator, rotator_dir, Pusher_Motor_Configuration, thread_list
 
 GPIO.setmode(GPIO.BCM)
 
@@ -29,6 +29,7 @@ def move_pusher(distance):
         dir = CW
     threadx = threading.Thread(target=thread_pusher(distance, dir), args=(1,))
     print("thread pusher started with distance: " + str(distance))
+    thread_list.append(threadx)
     threadx.start()
 
 
@@ -40,6 +41,7 @@ def move_pusher():
     dir = CCW
     threadx = threading.Thread(target=thread_pusher(Pusher_Motor_Configuration, dir), args=(1,))
     print("thread pusher started with distance: " + str(Pusher_Motor_Configuration))
+    thread_list.append(threadx)
     threadx.start()
 
 
@@ -60,6 +62,7 @@ def move_rotator(distance):
         dir = CW
     thready = threading.Thread(target=thread_rotator(distance, dir), args=(1,), )
     print("thread rotator started with distance: " + str(distance))
+    thread_list.append(threading)
     thready.start()
 
 

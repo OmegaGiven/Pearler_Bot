@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
-from config import aggrigator, aggrigator_dir, Agrigator_Motor_Configuration
+from config import aggrigator, aggrigator_dir, Agrigator_Motor_Configuration, thread_list
 
 GPIO.setmode(GPIO.BCM)
 
@@ -42,6 +42,7 @@ class ThreadA(threading.Thread):
 
 
 thread_a = ThreadA()
+thread_list.append(thread_a)
 thread_a.start()
 
 
