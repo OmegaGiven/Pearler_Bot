@@ -8,18 +8,15 @@ GPIO.setmode(GPIO.BCM)
 CW = 1
 CCW = 0
 SPR = 50
-
+delay = 0.001
 
 GPIO.setup(x, GPIO.OUT)
 GPIO.setup(x_dir, GPIO.OUT)
 GPIO.output(x_dir, CW)
 
-
 GPIO.setup(y, GPIO.OUT)
 GPIO.setup(y_dir, GPIO.OUT)
 GPIO.output(y_dir, CW)
-
-delay = 0.001
 
 
 def move_x(distance):

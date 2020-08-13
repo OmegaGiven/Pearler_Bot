@@ -19,7 +19,7 @@ def edit_function():
 
 
 def clean(app):
-    closer = yesno("close", "Performing cleanup on close? \tNeed to preform cleanup or else...")
+    closer = yesno("close", "Perform cleanup on close? \tNeed to preform cleanup or else...")
     if closer:
         cleanpins()
         app.destroy()
