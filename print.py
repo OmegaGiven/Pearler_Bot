@@ -12,5 +12,5 @@ def goto(startpointX, startpointY, startColor):
 
 def pearl(print_list):
     for point in print_list :
-        goto(print_list[0][0], print_list[0][1], print_list[0][2])
+        goto(int(print_list[0][0]), int(print_list[0][1]), int(print_list[0][2]))
 
