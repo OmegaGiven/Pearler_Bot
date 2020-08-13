@@ -10,10 +10,9 @@ def start_print(file_name, app):
     if file_name.value == "none selected":
         app.info("Error", "Please select a file")
     else:
-        try:
-            print_list = load_file(file_name)
-            pearl(print_list)
-            app.info("Printer Status", "Print has started")
+        print_list = load_file(file_name)
+        pearl(print_list)
+        app.info("Printer Status", "Print has started")
         # except:
         #     app.info("Printer Status", "Print cannot start. \n File does not work for operation.")
 
