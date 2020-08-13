@@ -46,6 +46,8 @@ def load_file(file_name):
     for line in f:
         line = line. rstrip('\n')
         val = line.split(',')
+        for x in val:
+            val[x] = int(val[x])
         val_list = list(val)
         loaded_file.append(val_list)
     f.close()
