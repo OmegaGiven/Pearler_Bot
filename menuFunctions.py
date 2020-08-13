@@ -11,12 +11,8 @@ def start_print(file_name, app):
         app.info("Error", "Please select a file")
     else:
         print_list = load_file(file_name.value)
-        pearl(print_list)
         app.info("Printer Status", "Print has started")
-        # except:
-        #     app.info("Printer Status", "Print cannot start. \n File does not work for operation.")
-
-
+        pearl(print_list)
 
 
 def file_function():
