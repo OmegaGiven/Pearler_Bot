@@ -12,6 +12,7 @@ def start_print(file_name, app):
         print_list = load_file(file_name.value)
         app.info("Printer Status", "Print has started")
         pearl(print_list)
+        print("success")
 
 
 def file_function():
