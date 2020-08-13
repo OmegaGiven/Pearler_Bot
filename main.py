@@ -9,7 +9,7 @@ theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
 # light teal, teal, dark grey, grey, light grey
 
 app = App(layout="grid", title="Pearler Controller", bg="#282828", width=600, height=500, )
-app.when_closed = menuFunctions.clean(app)
+app.when_closed = lambda: menuFunctions.clean(app)
 
 
 menubar = MenuBar(app,
