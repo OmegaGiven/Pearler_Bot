@@ -11,7 +11,7 @@ def goto(startpointX, startpointY, startColor):
 
 
 def pearl(print_list):
-    threadPearl = Process(target=thread_pearl())
+    threadPearl = Process(target=thread_pearl(print_list))
     threadPearl.start()
     print('thread Pearl started')
 
