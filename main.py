@@ -22,11 +22,11 @@ menubar.bg = theme[1]
 
 file_name = Text(app, grid=[1, 0], text="none selected", color="white", align="left")
 file_name.bg = theme[4]
-openPearlerFile = PushButton(app, command=get_file(file_name, app), text="Open pearler file", grid=[0, 0], align="left", )
+openPearlerFile = PushButton(app, command=lambda: get_file(file_name, app), text="Open pearler file", grid=[0, 0], align="left", )
 openPearlerFile.bg = theme[4]
 
 
-StartButton = PushButton(app, command=start_print(file_name, app), text="Start Print", grid=[0, 1], align="left")
+StartButton = PushButton(app, command=lambda: start_print(file_name, app), text="Start Print", grid=[0, 1], align="left")
 StartButton.bg = theme[4]
 
 
@@ -49,7 +49,7 @@ Text(text_box,
 # agrigator features
 slid_a = 0
 a1 = Text(controller_box, text="Aggregator", grid=[1, 3],)
-sliderA = Slider(controller_box, command=move_aggregator(slid_a), start=0, end=1, grid=[2, 3])
+sliderA = Slider(controller_box, command=lambda: move_aggregator(slid_a), start=0, end=1, grid=[2, 3])
 slid_a = sliderA.value
 sliderA.bg = theme[0]
 
@@ -57,20 +57,20 @@ sliderA.bg = theme[0]
 Text(controller_box, text="distance", grid=[3, 4], color="white")
 sliderXY = Slider(controller_box, start=-200, end=200, grid=[4, 4], )
 sliderXY.bg = theme[0]
-a2 = PushButton(controller_box, command=move_x_button(sliderXY), text="      Move X       ", grid=[1, 4],)
+a2 = PushButton(controller_box, command=lambda: move_x_button(sliderXY), text="      Move X       ", grid=[1, 4],)
 a2.bg = theme[4]
-a3 = PushButton(controller_box, command=move_y_button(sliderXY), text="      Move Y       ", grid=[2, 4],)
+a3 = PushButton(controller_box, command=lambda: move_y_button(sliderXY), text="      Move Y       ", grid=[2, 4],)
 a3.bg = theme[4]
 
 # rotate selector
-a4 = PushButton(controller_box, command=start_print, text="Rotate Selector", grid=[1, 5],)
+a4 = PushButton(controller_box, command=lambda: start_print, text="Rotate Selector", grid=[1, 5],)
 a4.bg = theme[4]
 Text(controller_box, text="speed", grid=[3, 4], color="white")
 slider = Slider(controller_box, start=-200, end=200, grid=[2, 5], )
 slider.bg = theme[0]
 
 # move push puller
-a5 = PushButton(controller_box, command=start_print, text=" Move Selector ", grid=[3, 5],)
+a5 = PushButton(controller_box, command=lambda: start_print, text=" Move Selector ", grid=[3, 5],)
 a5.bg = theme[4]
 Text(controller_box, text="speed", grid=[3, 4], color="white")
 slider = Slider(controller_box, start=-200, end=200, grid=[4, 5], )
