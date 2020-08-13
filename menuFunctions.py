@@ -1,6 +1,9 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno
 from xyMovement import move_x, move_y, cleanpins
 from agrigator import  agrigator_on, agrigator_off
+from colorSelector import move_pusher, move_rotator
+import numpy as np
+import csv
 
 
 def start_print(file_name, app):
@@ -30,6 +33,18 @@ def get_file(file_name, app):
     file_name.value = app.select_file()
 
 
+def load_file(file_name):
+    loaded_file = []
+    f = open(file_name, 'r')
+    for line in f:
+        line = line. rstrip('\n')
+        val = line.split(',')
+        val_list = list(int(val))
+        loaded_file.append(val_list)
+    f.close()
+    return loaded_file
+
+
 def move_aggregator(value):
     if value == 0:
         agrigator_off()
@@ -45,9 +60,9 @@ def move_y_button(sliderXY):
     move_y(sliderXY.value)
 
 
-def rotate_selector():
-    return
+def rotate_selector(distance):
+    move_rotator(distance)
 
 
-def move_selector():
-    return
+def move_selector(distance):
+    move_pusher(distance)

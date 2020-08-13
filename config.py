@@ -4,20 +4,16 @@ Configuration of Motors
 """
 
 X_Motor_Configuration = []
+Y_Motor_Configuration = []
 x = 24
 x_dir = 23
-Y_Motor_Configuration = []
 y = 7
 y_dir = 8
 
 Rotator_Motor_Configuration = []
 Pusher_Motor_Configuration = []
-
-
 rotator = 6
 rotator_dir = 5
-
-
 pusher = 22
 pusher_dir = 27
 

@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
-import config
+from config import pusher, pusher_dir, rotator, rotator_dir
 
 GPIO.setmode(GPIO.BCM)
 
@@ -11,51 +11,51 @@ SPR = 50
 delay = 0.01
 
 """ Top Pusher Pin setup """
-GPIO.setup(config.pusher, GPIO.OUT)
-GPIO.setup(config.pusher_dir, GPIO.OUT)
-GPIO.output(config.pusher_dir, CW)
+GPIO.setup(pusher, GPIO.OUT)
+GPIO.setup(pusher_dir, GPIO.OUT)
+GPIO.output(pusher_dir, CW)
 
 """ Rotator Pin setup """
-GPIO.setup(config.rotator, GPIO.OUT)
-GPIO.setup(config.rotator_dir, GPIO.OUT)
-GPIO.output(config.rotator_dir, CW)
+GPIO.setup(rotator, GPIO.OUT)
+GPIO.setup(rotator_dir, GPIO.OUT)
+GPIO.output(rotator_dir, CW)
 
 
-class ThreadA(threading.Thread):
-    def __init__(self):
-        super(ThreadA, self).__init__()
-        self.stop = False
-
-    def thread_move(self):
-        while self.stop:
-            GPIO.output(dir, CW)
-            for i in range(200):
-                GPIO.output(stepper, GPIO.HIGH)
-                time.sleep(delay)
-                GPIO.output(stepper, GPIO.LOW)
-                time.sleep(delay)
-            GPIO.output(dir, CCW)
-            for i in range(200):
-                GPIO.output(stepper, GPIO.HIGH)
-                time.sleep(delay)
-                GPIO.output(stepper, GPIO.LOW)
-                time.sleep(delay)
-            return
-
-    def run(self):
-        self.thread_move()
+def move_pusher(distance):
+    if distance < 0:
+        distance = distance * -1
+        dir = CCW
+    else:
+        dir = CW
+    threadx = threading.Thread(target=thread_pusher(distance, dir), args=(1,))
+    print("threadx started with distance: " + str(distance))
+    threadx.start()
 
 
-thread_a = ThreadA()
-thread_a.start()
+def thread_pusher(distance, dir):
+    GPIO.output(pusher_dir, dir)
+    for i in range(distance):
+        GPIO.output(pusher, GPIO.HIGH)
+        time.sleep(delay)
+        GPIO.output(pusher, GPIO.LOW)
+        time.sleep(delay)
 
 
-def agrigator_on():
-    thread_a.stop = True
+def move_rotator(distance):
+    if distance < 0:
+        distance = distance * -1
+        dir = CCW
+    else:
+        dir = CW
+    thready = threading.Thread(target=thread_rotator(distance, dir), args=(1,), )
+    print("thready started with distance: " + str(distance))
+    thready.start()
 
 
-def agrigator_off():
-    thread_a.stop = False
-
-
-
+def thread_rotator(distance, dir):
+    GPIO.output(rotator_dir, dir)
+    for i in range(distance):
+        GPIO.output(rotator, GPIO.HIGH)
+        time.sleep(delay)
+        GPIO.output(rotator, GPIO.LOW)
+        time.sleep(delay)

@@ -40,14 +40,12 @@ Text(text_box,
      text="Manual Control",
      color="white",)
 
-
 """ Aggregator """
 slid_a = 0
 a1 = Text(controller_box, text="Aggregator", grid=[1, 3],)
 sliderA = Slider(controller_box, command=lambda: menuFunctions.move_aggregator(slid_a), start=0, end=1, grid=[2, 3])
 slid_a = sliderA.value
 sliderA.bg = theme[0]
-
 
 """ movement features """
 Text(controller_box, text="distance", grid=[3, 4], color="white")
@@ -59,18 +57,18 @@ a3 = PushButton(controller_box, command=lambda: menuFunctions.move_y_button(slid
 a3.bg = theme[4]
 
 """ rotate selector """
-a4 = PushButton(controller_box, command=lambda: menuFunctions.start_print, text="Rotate Selector", grid=[1, 5],)
+sliderR = Slider(controller_box, start=-200, end=200, grid=[2, 5], )
+sliderR.bg = theme[0]
+a4 = PushButton(controller_box, command=lambda: menuFunctions.rotate_selector(sliderR.value), text="Rotate Selector", grid=[1, 5],)
 a4.bg = theme[4]
-Text(controller_box, text="speed", grid=[3, 4], color="white")
-slider = Slider(controller_box, start=-200, end=200, grid=[2, 5], )
-slider.bg = theme[0]
+
 
 """" move push puller """
-a5 = PushButton(controller_box, command=lambda: menuFunctions.start_print, text=" Move Selector ", grid=[3, 5],)
+sliderM = Slider(controller_box, start=-200, end=200, grid=[4, 5], )
+sliderM.bg = theme[0]
+a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(sliderM.value), text=" Move Selector ", grid=[3, 5],)
 a5.bg = theme[4]
-Text(controller_box, text="speed", grid=[3, 4], color="white")
-slider = Slider(controller_box, start=-200, end=200, grid=[4, 5], )
-slider.bg = theme[0]
+
 
 
 app.display()
