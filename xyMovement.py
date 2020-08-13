@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
-from config import x, x_dir, y, y_dir
+from config import x, x_dir, y, y_dir, X_Motor_Configuration, Y_Motor_Configuration
 from config import thread_list
 
 GPIO.setmode(GPIO.BCM)
@@ -26,7 +26,7 @@ def move_x(distance):
         dir = CCW
     else:
         dir = CW
-    threadx = threading.Thread(target=thread_x(distance, dir), args=(1,))
+    threadx = threading.Thread(target=thread_x(distance * X_Motor_Configuration, dir), args=(1,))
     print("threadx started with distance: " + str(distance))
     thread_list.append(threadx)
     threadx.start()
@@ -47,7 +47,7 @@ def move_y(distance):
         dir = CCW
     else:
         dir = CW
-    thready = threading.Thread(target=thread_y(distance, dir), args=(1,), )
+    thready = threading.Thread(target=thread_y(distance * Y_Motor_Configuration, dir), args=(1,), )
     print("thready started with distance: " + str(distance))
     thread_list.append(thready)
     thready.start()
