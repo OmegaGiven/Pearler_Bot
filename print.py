@@ -14,10 +14,9 @@ def goto(startpointX, startpointY, startColor):
 def pearl(print_list):
     threadPearl = threading.Thread(target=thread_pearl(print_list), args=(1,), )
     threadPearl.start()
+    print('thread Pearl started')
 
 
 def thread_pearl(print_list):
     for point in print_list :
         goto(int(point[0]), int(point[1]), int(point[2]))
-    print("testing print")
-
