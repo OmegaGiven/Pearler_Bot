@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
-from config import aggrigator, aggrigator_dir, Agrigator_Motor_Configuration, thread_list
+from config import aggrigator, aggrigator_dir, Agrigator_Motor_Configuration
 
 GPIO.setmode(GPIO.BCM)
 
