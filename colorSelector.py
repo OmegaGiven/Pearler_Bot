@@ -28,7 +28,7 @@ def move_pusher(distance):
     else:
         dir = CW
     threadx = threading.Thread(target=thread_pusher(distance, dir), args=(1,))
-    print("threadx started with distance: " + str(distance))
+    print("thread pusher started with distance: " + str(distance))
     threadx.start()
 
 
@@ -48,7 +48,7 @@ def move_rotator(distance):
     else:
         dir = CW
     thready = threading.Thread(target=thread_rotator(distance, dir), args=(1,), )
-    print("thready started with distance: " + str(distance))
+    print("thread rotator started with distance: " + str(distance))
     thready.start()
 
 
