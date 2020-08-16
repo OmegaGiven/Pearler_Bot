@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import threading
 import time
-from config import pusher, pusher_dir, rotator, rotator_dir, Pusher_Motor_Configuration, Rotator_Motor_Configuration
+from config import pusher, pusher_dir, rotator_dir, Pusher_Motor_Configuration, Rotator_Motor_Configuration
 
 GPIO.setmode(GPIO.BCM)
 
