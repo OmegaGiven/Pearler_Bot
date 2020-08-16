@@ -2,8 +2,8 @@
 Configuration of Motors
     input the number used in manual control to drop to specific pins and holes for accurate movement.
 """
-X_Motor_Configuration = 10
-Y_Motor_Configuration = 10
+X_Motor_Configuration = 5
+Y_Motor_Configuration = 5
 x = 24
 x_dir = 23
 y = 7
