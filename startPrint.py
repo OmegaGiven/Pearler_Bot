@@ -1,8 +1,9 @@
-from xyMovement import move_x, move_y
-from colorSelector import move_pusher, move_rotator
+from xyMovement import move_x, move_y, total
+from colorSelector import move_pusher, move_rotator, ctotal
 from multiprocessing import Process
 
 threadPearl = Process(target=lambda: thread_pearl([]))
+
 
 def goto(startpointX, startpointY, startColor):
     move_rotator(startColor)
@@ -20,6 +21,7 @@ def pearl(print_list):
 def thread_pearl(print_list):
     for point in print_list :
         goto(int(point[0]), int(point[1]), int(point[2]))
+    goto(-total.x_total, -total.y_total,  -ctotal.c_total)
 
 
 def stop_all():

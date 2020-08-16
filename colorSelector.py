@@ -21,6 +21,19 @@ GPIO.setup(rotator_dir, GPIO.OUT)
 GPIO.output(rotator_dir, CW)
 
 
+class ctotals:
+    c_total = 0
+
+    def get_c_total(self):
+        return self.c_total
+
+    def set_c_total(self, new_c):
+        self.c_total = new_c
+
+
+ctotal = ctotals()
+
+
 def move_pusher():
     dir = CW
     threadx = threading.Thread(target=thread_pusher(Pusher_Motor_Configuration, dir), args=(1,))

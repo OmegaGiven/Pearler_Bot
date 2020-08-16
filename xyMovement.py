@@ -19,6 +19,26 @@ GPIO.setup(y_dir, GPIO.OUT)
 GPIO.output(y_dir, CW)
 
 
+class totals:
+    x_total = 0
+    y_total = 0
+
+    def get_x_total(self):
+        return self.x_total
+
+    def get_y_total(self):
+        return self.y_total
+
+    def set_x_total(self, new_x):
+        self.x_total = new_x
+
+    def set_y_total(self, new_y):
+        self.y_total = new_y
+
+
+total = totals()
+
+
 def move_x(distance):
     if distance < 0:
         distance = distance * -1
@@ -28,6 +48,7 @@ def move_x(distance):
     threadx = threading.Thread(target=thread_x(distance * X_Motor_Configuration, dir), args=(1,))
     print("threadx started with distance: " + str(distance))
     threadx.start()
+    total.set_x_total(total.get_x_total() + distance)
 
 
 def thread_x(distance, dir):
@@ -48,6 +69,7 @@ def move_y(distance):
     thready = threading.Thread(target=thread_y(distance * Y_Motor_Configuration, dir), args=(1,), )
     print("thready started with distance: " + str(distance))
     thready.start()
+    total.set_y_total(total.get_y_total() + distance)
 
 
 def thread_y(distance, dir):
