@@ -70,11 +70,5 @@ def rotate_selector(distance):
     move_rotator(distance)
 
 
-def move_selector(distance):
-    move_pusher(distance)
-
-
-def stop_all():
-    for x in thread_list:
-        x.terminate()
-    print("stopping everything")
+def move_selector():
+    move_pusher()

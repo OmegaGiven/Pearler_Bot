@@ -64,9 +64,7 @@ a4.bg = theme[4]
 
 
 """" move push puller """
-sliderM = Slider(controller_box, start=-200, end=200, grid=[4, 5], )
-sliderM.bg = theme[0]
-a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(sliderM.value), text=" Move Selector ", grid=[3, 5],)
+a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(), text=" Move Selector ", grid=[3, 5],)
 a5.bg = theme[4]
 
 """ Stop All Button"""
