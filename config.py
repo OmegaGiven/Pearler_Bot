@@ -11,6 +11,7 @@ y_dir = 8
 
 Rotator_Motor_Configuration = 6
 Pusher_Motor_Configuration = 10
+rotator = 6
 rotator_dir = 5
 pusher = 22
 pusher_dir = 27
