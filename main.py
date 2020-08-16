@@ -58,7 +58,7 @@ a3 = PushButton(controller_box, command=lambda: menuFunctions.move_y_button(slid
 a3.bg = theme[4]
 
 """ rotate selector """
-sliderR = Slider(controller_box, start=-200, end=200, grid=[2, 5], )
+sliderR = Slider(controller_box, start=-50, end=50, grid=[2, 5], )
 sliderR.bg = theme[0]
 a4 = PushButton(controller_box, command=lambda: menuFunctions.rotate_selector(sliderR.value), text="Rotate Selector", grid=[1, 5],)
 a4.bg = theme[4]
