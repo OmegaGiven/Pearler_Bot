@@ -1,5 +1,5 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno
-from print import stop_all
+from startPrint import stop_all
 import menuFunctions
 
 theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
@@ -69,7 +69,7 @@ a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(), t
 a5.bg = theme[4]
 
 """ Stop All Button"""
-a6 = PushButton(controller_box, command=lambda: print.stop_all(), text="Stop All functions", grid=[1,6])
+a6 = PushButton(controller_box, command=lambda: stop_all(), text="Stop All functions", grid=[1,6])
 a6.bg = theme[4]
 
 
