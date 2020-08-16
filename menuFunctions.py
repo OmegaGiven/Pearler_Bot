@@ -66,8 +66,8 @@ def move_y_button(sliderXY):
     move_y(sliderXY.value)
 
 
-def rotate_selector(distance):
-    move_rotator(distance)
+def rotate_selector():
+    move_rotator()
 
 
 def move_selector():
