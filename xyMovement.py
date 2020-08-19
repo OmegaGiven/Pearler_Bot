@@ -43,8 +43,10 @@ def move_x(distance):
     if distance < 0:
         distance = distance * -1
         dir = CCW
+        print("going counter clockwise")
     else:
         dir = CW
+        print("clockwise")
     threadx = threading.Thread(target=thread_x(distance * X_Motor_Configuration, dir), args=(1,))
     print("threadx started with distance: " + str(distance))
     threadx.start()
