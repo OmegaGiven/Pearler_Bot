@@ -19,8 +19,8 @@ def pearl(print_list):
 
 
 def thread_pearl(print_list):
-    for point in print_list :
-        if float(point[1]//2) == 1:
+    for point in print_list:
+        if float(point[1])//2 == 1:
             goto(int(point[0]), int(point[1]), int(point[2]))
         else:
             goto(int(-point[0]), int(point[1]), int(point[2]))
