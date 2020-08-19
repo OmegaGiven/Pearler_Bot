@@ -23,7 +23,7 @@ def thread_pearl(print_list):
         if float(point[1])//2 == 1:
             goto(int(point[0]), int(point[1]), int(point[2]))
         else:
-            goto(int(-point[0]), int(point[1]), int(point[2]))
+            goto(int("-"+point[0]), int(point[1]), int(point[2]))
     goto(-total.x_total, -total.y_total,  -ctotal.c_total)
 
 
