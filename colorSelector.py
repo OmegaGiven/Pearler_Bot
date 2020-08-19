@@ -31,6 +31,7 @@ class ctotals:
         self.c_total = new_c
 
 
+
 ctotal = ctotals()
 
 
@@ -55,14 +56,25 @@ def thread_pusher(distance, dir):
 
 
 def move_rotator(distance):
-    if distance < 0:
-        distance = distance * -1
-        dir = CCW
+    if distance == ctotal.get_c_total():
+        return
     else:
-        dir = CW
-    thready = threading.Thread(target=thread_rotator(distance*Rotator_Motor_Configuration, dir), args=(1,), )
-    print("thread rotator started with distance: " + str(distance))
-    thready.start()
+        move_amount = distance - ctotal.get_c_total() * Rotator_Motor_Configuration
+        if move_amount < 0:
+            dir = CCW
+            thready = threading.Thread(target=thread_rotator(move_amount*-1, dir), args = (1,), )
+            print("thread rotator started with distance: " + str(distance))
+            thready.start()
+            ctotal.set_c_total(distance)
+        else:
+            dir = CW
+            thready = threading.Thread(target=thread_rotator(move_amount, dir), args = (1,), )
+            print("thread rotator started with distance: " + str(distance))
+            thready.start()
+            ctotal.set_c_total(distance)
+
+
+
 
 
 def thread_rotator(distance, dir):
