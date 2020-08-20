@@ -17,9 +17,9 @@ pusher = 22
 pusher_dir = 27
 
 
-aggrigator = 21
-aggrigator_dir = 20
-Agrigator_Motor_Configuration = 200
+aggregator = 21
+aggregator_dir = 20
+Aggregator_Motor_Configuration = 200
 
 """
 Motor Configuration:

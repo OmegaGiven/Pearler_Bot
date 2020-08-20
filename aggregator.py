@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from multiprocessing import Process
 import time
 import threading
-from config import aggrigator, aggrigator_dir, Agrigator_Motor_Configuration
+from config import aggregator, aggregator_dir, Aggregator_Motor_Configuration
 
 GPIO.setmode(GPIO.BCM)
 
@@ -11,9 +11,9 @@ CCW = 0
 SPR = 50
 
 
-GPIO.setup(aggrigator, GPIO.OUT)
-GPIO.setup(aggrigator_dir, GPIO.OUT)
-GPIO.output(aggrigator_dir, CW)
+GPIO.setup(aggregator, GPIO.OUT)
+GPIO.setup(aggregator_dir, GPIO.OUT)
+GPIO.output(aggregator_dir, CW)
 delay = 0.01
 
 
@@ -24,17 +24,17 @@ class ThreadA(threading.Thread):
 
     def thread_move(self):
         while self.stop:
-            GPIO.output(aggrigator_dir, CW)
-            for i in range(Agrigator_Motor_Configuration):
-                GPIO.output(aggrigator, GPIO.HIGH)
+            GPIO.output(aggregator_dir, CW)
+            for i in range(Aggregator_Motor_Configuration):
+                GPIO.output(aggregator, GPIO.HIGH)
                 time.sleep(delay)
-                GPIO.output(aggrigator, GPIO.LOW)
+                GPIO.output(aggregator, GPIO.LOW)
                 time.sleep(delay)
-            GPIO.output(aggrigator_dir, CCW)
-            for i in range(Agrigator_Motor_Configuration):
-                GPIO.output(aggrigator, GPIO.HIGH)
+            GPIO.output(aggregator_dir, CCW)
+            for i in range(Aggregator_Motor_Configuration):
+                GPIO.output(aggregator, GPIO.HIGH)
                 time.sleep(delay)
-                GPIO.output(aggrigator, GPIO.LOW)
+                GPIO.output(aggregator, GPIO.LOW)
                 time.sleep(delay)
             return
 
