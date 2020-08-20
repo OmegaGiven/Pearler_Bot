@@ -1,6 +1,6 @@
 from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno
 from xyMovement import move_x, move_y, cleanpins
-from agrigator import  agrigator_on, agrigator_off
+from agrigator import  aggregator_on, aggregator_off
 from colorSelector import move_pusher, move_rotator
 from startPrint import pearl
 
@@ -53,9 +53,9 @@ def load_file(file_name):
 
 def move_aggregator(value):
     if value == 0:
-        agrigator_off()
+        aggregator_off()
     if value == 1:
-        agrigator_on()
+        aggregator_on()
 
 
 def move_x_button(sliderXY):

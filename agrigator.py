@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
-import threading
+from multiprocessing import Process
 import time
+import threading
 from config import aggrigator, aggrigator_dir, Agrigator_Motor_Configuration
 
 GPIO.setmode(GPIO.BCM)
@@ -19,7 +20,7 @@ delay = 0.01
 class ThreadA(threading.Thread):
     def __init__(self):
         super(ThreadA, self).__init__()
-        self.stop = False
+        self.stop = True
 
     def thread_move(self):
         while self.stop:
@@ -42,15 +43,16 @@ class ThreadA(threading.Thread):
 
 
 thread_a = ThreadA()
-thread_a.start()
+aggregatorProcess = Process(target = lambda: thread_a.thread_move())
+aggregatorProcess.start()
 
 
-def agrigator_on():
-    thread_a.stop = True
-
-
-def agrigator_off():
+def aggregator_on():
     thread_a.stop = False
+
+
+def aggregator_off():
+    thread_a.stop = True
 
 
 
