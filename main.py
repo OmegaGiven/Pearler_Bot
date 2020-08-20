@@ -64,7 +64,6 @@ sliderR.bg = theme[0]
 a4 = PushButton(controller_box, command=lambda: menuFunctions.rotate_selector(sliderR.value), text="Rotate Selector", grid=[1, 5],)
 a4.bg = theme[4]
 
-
 """" move push puller """
 a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(), text=" Move Selector ", grid=[3, 5],)
 a5.bg = theme[4]
@@ -99,7 +98,6 @@ Text(text_box,
      text="Aggregator Motor Configuration",
      color="white", grid=[1,11])
 aggregator_input = TextBox(app, text=config.Aggregator_Motor_Configuration, grid=[2,11])
-
 
 
 app.display()

@@ -35,7 +35,6 @@ class totals:
     def set_y_total(self, new_y):
         self.y_total = new_y
 
-
 total = totals()
 
 

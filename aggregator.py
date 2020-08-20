@@ -10,7 +10,6 @@ CW = 1
 CCW = 0
 SPR = 50
 
-
 GPIO.setup(aggregator, GPIO.OUT)
 GPIO.setup(aggregator_dir, GPIO.OUT)
 GPIO.output(aggregator_dir, CW)
@@ -53,6 +52,3 @@ def aggregator_on():
 
 def aggregator_off():
     thread_a.stop = True
-
-
-

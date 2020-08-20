@@ -31,7 +31,6 @@ class ctotals:
         self.c_total = new_c
 
 
-
 ctotal = ctotals()
 
 
@@ -72,9 +71,6 @@ def move_rotator(distance):
             print("thread rotator started with distance: " + str(distance))
             thready.start()
             ctotal.set_c_total(distance)
-
-
-
 
 
 def thread_rotator(distance, dir):
