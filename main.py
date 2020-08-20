@@ -77,28 +77,28 @@ a6.bg = theme[4]
 """ Config Changer"""
 Text(text_box,
      text="X Motor Configuration",
-     color="white",)
-x_input = TextBox(app, text=config.X_Motor_Configuration)
+     color="white",grid=[1,7])
+x_input = TextBox(app, text=config.X_Motor_Configuration, grid=[2,7])
 
 Text(text_box,
      text="Y Motor Configuration",
-     color="white",)
-y_input = TextBox(app, text=config.Y_Motor_Configuration)
+     color="white", grid=[1,8])
+y_input = TextBox(app, text=config.Y_Motor_Configuration, grid=[2,8])
 
 Text(text_box,
      text="Rotator Motor Configuration",
-     color="white",)
-rotator_input = TextBox(app, text=config.Rotator_Motor_Configuration)
+     color="white", grid=[1,9])
+rotator_input = TextBox(app, text=config.Rotator_Motor_Configuration, grid=[2,9])
 
 Text(text_box,
      text="Pusher Motor Configuration",
-     color="white",)
-pusher_input = TextBox(app, text=config.Pusher_Motor_Configuration)
+     color="white", grid=[1,10])
+pusher_input = TextBox(app, text=config.Pusher_Motor_Configuration, grid=[2,10])
 
 Text(text_box,
      text="Aggregator Motor Configuration",
-     color="white",)
-aggregator_input = TextBox(app, text=config.Aggregator_Motor_Configuration)
+     color="white", grid=[1,11])
+aggregator_input = TextBox(app, text=config.Aggregator_Motor_Configuration, grid=[2,11])
 
 
 
