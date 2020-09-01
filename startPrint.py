@@ -8,6 +8,7 @@ threadPearl = Process(target=lambda: thread_pearl([]))
 def goto(startpointX, startpointY, startColor):
     move_rotator(startColor)
     move_pusher()
+    # need to add sleep timer here so the bead can hav time to fall.
     move_x(startpointX)
     move_y(startpointY)
 
