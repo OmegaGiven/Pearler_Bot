@@ -1,5 +1,6 @@
-from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno
+from guizero import App, PushButton, MenuBar, Text, Slider, Box, yesno, TextBox
 from startPrint import stop_all
+import config
 import menuFunctions
 
 theme = ["#00897b", "#00564d", "#282828", "#363636", "#969696"]
@@ -63,7 +64,6 @@ sliderR.bg = theme[0]
 a4 = PushButton(controller_box, command=lambda: menuFunctions.rotate_selector(sliderR.value), text="Rotate Selector", grid=[1, 5],)
 a4.bg = theme[4]
 
-
 """" move push puller """
 a5 = PushButton(controller_box, command=lambda: menuFunctions.move_selector(), text=" Move Selector ", grid=[3, 5],)
 a5.bg = theme[4]
@@ -71,6 +71,33 @@ a5.bg = theme[4]
 """ Stop All Button"""
 a6 = PushButton(controller_box, command=lambda: stop_all(), text="Stop All functions", grid=[1,6])
 a6.bg = theme[4]
+
+
+""" Config Changer"""
+Text(text_box,
+     text="X Motor Configuration",
+     color="white",grid=[1,7])
+x_input = TextBox(app, text=config.X_Motor_Configuration, grid=[2,7])
+
+Text(text_box,
+     text="Y Motor Configuration",
+     color="white", grid=[1,8])
+y_input = TextBox(app, text=config.Y_Motor_Configuration, grid=[2,8])
+
+Text(text_box,
+     text="Rotator Motor Configuration",
+     color="white", grid=[1,9])
+rotator_input = TextBox(app, text=config.Rotator_Motor_Configuration, grid=[2,9])
+
+Text(text_box,
+     text="Pusher Motor Configuration",
+     color="white", grid=[1,10])
+pusher_input = TextBox(app, text=config.Pusher_Motor_Configuration, grid=[2,10])
+
+Text(text_box,
+     text="Aggregator Motor Configuration",
+     color="white", grid=[1,11])
+aggregator_input = TextBox(app, text=config.Aggregator_Motor_Configuration, grid=[2,11])
 
 
 app.display()
